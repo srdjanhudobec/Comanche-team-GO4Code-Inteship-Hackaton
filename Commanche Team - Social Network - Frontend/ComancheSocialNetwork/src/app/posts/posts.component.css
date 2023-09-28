@@ -1,0 +1,48 @@
+.user-info{
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+}
+.post{
+    border: 2px solid black;
+    width: 600px;
+    height: 250px;
+    margin-left: 500px;
+
+}
+.post:hover{
+    background-color: whitesmoke;
+}
+.naslovPosta{
+    text-align: center;
+}
+.vreme{
+    font-size: 12px;
+    text-align: center;
+}
+h3{
+    text-align: center;
+    margin-left: 20px;
+    font-size: 30px;
+}
+.example-card{
+    width: 400px;
+    margin-left: 580px;
+    border: 2px solid black;
+    border-radius: 15%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.komentari{
+    margin-left: 20px;
+    font-size: 12px;
+    margin-top: 10px;
+}
+#addPost{
+    margin-left: 725px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+body{
+    background-image: url("../../images/background.jpg");
+}

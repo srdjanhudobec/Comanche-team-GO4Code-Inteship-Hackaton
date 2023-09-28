@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ComancheSocialNetwork</name>
+    </assembly>
+    <members>
+        <member name="M:ComancheSocialNetwork.Controllers.AuthController.Login(ComancheSocialNetwork.DTOs.User.LogInRequest)">
+            <summary>
+            Login
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ComancheSocialNetwork.Controllers.AuthController.Register(ComancheSocialNetwork.DTOs.User.UserPostRequest)">
+            <summary>
+            Register user
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ComancheSocialNetwork.Migrations.Init">
+            <inheritdoc />
+        </member>
+        <member name="M:ComancheSocialNetwork.Migrations.Init.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ComancheSocialNetwork.Migrations.Init.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ComancheSocialNetwork.Migrations.Init.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:ComancheSocialNetwork.Migrations.Init2">
+            <inheritdoc />
+        </member>
+        <member name="M:ComancheSocialNetwork.Migrations.Init2.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ComancheSocialNetwork.Migrations.Init2.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ComancheSocialNetwork.Migrations.Init2.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:ComancheSocialNetwork.Migrations.Init3">
+            <inheritdoc />
+        </member>
+        <member name="M:ComancheSocialNetwork.Migrations.Init3.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ComancheSocialNetwork.Migrations.Init3.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ComancheSocialNetwork.Migrations.Init3.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

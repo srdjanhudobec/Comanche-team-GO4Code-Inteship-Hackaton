@@ -1,0 +1,156 @@
+<div>
+  <button id="addPost" type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalPost">Add
+    Post</button>
+</div>
+
+<h3>Posts: </h3>
+<mat-card *ngFor="let p of posts" class="example-card">
+  <mat-card-header class="header">
+    <mat-card-subtitle>{{p.postText}}</mat-card-subtitle>
+    <mat-card-title>{{p.timeCreated | slice:0:10}}    {{p.timeCreated | slice:11:16}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="komentari" *ngFor="let c of p.comments">
+      <p>{{c.creator.firstName}} - {{c.creator.lastName}} - {{c.creator.email}}</p>
+      <p>{{c.commentText}}</p><button mat-raised-button color="primary" type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalUpdateComment" (click)="addCommentId(c.id)">Update
+        Comment</button>
+      <button mat-raised-button color="warn" type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalDeleteComment" (click)="addCommentId(c.id)">Delete
+        Comment</button>
+      
+    </div>
+    <mat-divider></mat-divider>
+  </mat-card-content>
+  <mat-card-actions>
+    <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalComment" (click)="addPostId(p.id)">Add
+      Comment</button>
+
+  </mat-card-actions>
+  <button mat-raised-button color="warn" type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#exampleModalDeletePost" (click)="addPostId(p.id)">Delete
+    Post</button>
+</mat-card>
+
+<div class="modal fade" id="exampleModalDeletePost" tabindex="-1" aria-labelledby="exampleModalLabelDeletePost" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabelPost">Delete post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+              (click)="resetModals()">Close</button>
+            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="deletePost()">Delete Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalPost" tabindex="-1" aria-labelledby="exampleModalLabelPost" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabelPost">New Post</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="mb-3">
+            <label class="col-form-label"></label>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-label="Post text:" aria-describedby="button-addon2"
+                [(ngModel)]="postText" value="{{postText}}">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+              (click)="resetModals()">Close</button>
+            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="createNewPost()">Create Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalDeleteComment" tabindex="-1" aria-labelledby="exampleModalLabelPost" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabelPost">Delete comment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+              (click)="resetModals()">Close</button>
+            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="deleteComment()">Delete comment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalComment" tabindex="-1" aria-labelledby="exampleModalLabelComment" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabelPost">New Comment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="mb-3">
+            <label class="col-form-label"></label>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-label="Comment text:" aria-describedby="button-addon2"
+                [(ngModel)]="commentText" value="{{commentText}}">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+              (click)="resetModals()">Close</button>
+            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="createNewCommnet()">Create Comment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModalUpdateComment" tabindex="-1" aria-labelledby="exampleModalLabelUpdateComment" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabelPost">Update Comment</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="mb-3">
+            <label class="col-form-label"></label>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" aria-label="Comment text:" aria-describedby="button-addon2"
+                [(ngModel)]="textComment" value="{{textComment}}">
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+              (click)="resetModals()">Close</button>
+            <button type="button" class="btn btn-outline-success" data-bs-dismiss="modal" (click)="updateComment()">Update Comment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
